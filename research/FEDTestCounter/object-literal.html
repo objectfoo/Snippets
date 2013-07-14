@@ -29,11 +29,14 @@ label {
   (function () {
     'use strict';
 
-  var counter = {
-    value: 0,
-    inc: function () { this.value++; },
-    dec: function () { this.value--; }
-  };
+    var counter = {
+      value: 0,
+      inc: function () { this.value++; },
+      dec: function () { this.value--; }
+    };
+
+    // Object.create for reusability
+    // var counterA = Object.create(counter);
 
     function updateLabel () {
       var label = document.getElementById('count');
@@ -42,9 +45,8 @@ label {
     }
 
     $('body').on('click', 'button', function() {
-      var id = this.id;
 
-      if (id === 'increment') {
+      if (this.id === 'increment') {
         counter.inc();
       } else {
         counter.dec();
@@ -52,6 +54,7 @@ label {
       updateLabel();
     });
     updateLabel();
+
   })();
 </script>
 </body>

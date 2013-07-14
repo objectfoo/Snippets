@@ -22,7 +22,7 @@
   counter.value();              // 0
 })();
 
-// object literal, not all that reusable but short and has trick api
+// object literal, needs Object.create for reuse but short and implements trick api
 (function () {
   'use strict';
 
