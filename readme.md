@@ -1,3 +1,3 @@
 # Snippets
 
-My collection of Javascript snippets.
+A collection of Javascript snippets.
