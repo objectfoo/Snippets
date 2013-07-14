@@ -2,7 +2,7 @@
 * FED test counter object
 * **************************************************/
 
-//
+// constructor, prototype methods & prop, module pattern
 (function () {
   'use strict';
 
