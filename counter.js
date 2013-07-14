@@ -24,6 +24,8 @@
 
 // object literal, not all that reusable but short and has trick api
 (function () {
+  'use strict';
+
   var counter = {
     value: 0,
     inc: function () { this.count++; },
@@ -55,6 +57,8 @@
 
 // factory w/private vars and methods object returned as api
 (function () {
+  'use strict';
+
   function privateCounter() {
     var count = 0;
 
