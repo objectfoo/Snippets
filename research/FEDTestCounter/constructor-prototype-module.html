@@ -35,7 +35,7 @@ label {
       C.prototype = {
         inc: function() { this.count++; },
         dec: function() { this.count--; },
-        getCount: function() { return this.count; }
+        value: function() { return this.count; }
       };
       return C;
     })(),
@@ -45,7 +45,7 @@ label {
     updateLabel = function() {
       var label = document.getElementById('count');
       updateLabel = function  () {
-        $(label).text(myCounter.getCount());
+        $(label).text(myCounter.value());
       };
       updateLabel();
     };

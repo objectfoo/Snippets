@@ -11,7 +11,7 @@
     C.prototype = {
       inc: function () { this.count++; },
       dec: function () { this.count--; },
-      getCount: function () { return this.count; }
+      value: function () { return this.count; }
     };
     return C;
   })(),
