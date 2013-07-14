@@ -1,19 +1,17 @@
 // Javascript Patterns Stoyan Stefanov page 175
-'use strict';
-
 var publisher = {
 
   on: function (fn, type) {
     type = type || 'any';
 
-    if ( typeof this.subscribers[type] === 'undefined' ) {
+    if (typeof this.subscribers[type] === 'undefined') {
       this.subscribers[type] = [];
     }
     this.subscribers[type].push(fn);
   },
 
   remove: function (fn, type) {
-    this.visitSubscribers( 'unsubscribe', fn, type  );
+    this.visitSubscribers('unsubscribe', fn, type);
   },
 
   fire: function (publication, type) {
@@ -26,12 +24,12 @@ var publisher = {
       max = subscribers.length,
       i;
 
-    for ( i = 0; i < max; i += 1) {
+    for (i = 0; i < max; i += 1) {
 
-      if ( action === 'publish' ) {
+      if (action === 'publish') {
         subscribers[i](arg);
-      } else if ( subscribers[i] === arg ) {
-        subscribers.splice( i, 1 );
+      } else if (subscribers[i] === arg) {
+        subscribers.splice(i, 1);
       }
     }
   }
@@ -39,9 +37,9 @@ var publisher = {
 
 function makePublisher(o) {
 
-  for ( var i in publisher ) {
+  for (var i in publisher) {
 
-    if ( publisher.hasOwnProperty ( i ) && typeof publisher[i] === 'function' ) {
+    if (publisher.hasOwnProperty(i) && typeof publisher[i] === 'function') {
       o[i] = publisher[i];
     }
   }

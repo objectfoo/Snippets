@@ -13,23 +13,23 @@
 //    width: 0px;
 //  }
 // }
-(function(window) {
+(function (window) {
   'use strict';
 
   var doc = window.document,
 
   // lazy load on call
-  isMobileLayout = function() {
+  isMobileLayout = function () {
     var div = doc.getElementById('is-in-mobile-layout');
 
-    if(!div) {
+    if (!div) {
       div = doc.createElement('div');
       div.id = 'is-in-mobile-layout';
       div.style.cssText = 'position:absolute;top:-100em;';
       doc.body.appendChild(div);
     }
 
-    isMobileLayout = function() {
+    isMobileLayout = function () {
       return div.offsetWidth === 0;
     };
 

@@ -5,8 +5,8 @@
   'use strict';
 
   var previousOrientation = 0;
-  var checkOrientation = function(){
-    if (window.orientation !== previousOrientation){
+  var checkOrientation = function () {
+    if (window.orientation !== previousOrientation) {
       previousOrientation = window.orientation;
       // orientation changed, do your magic here
     }

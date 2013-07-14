@@ -4,9 +4,9 @@
 (function () {
   'use strict';
 
-  function throttle( method, context, timeout ) {
+  function throttle(method, context, timeout) {
     clearTimeout(method.tId);
-    method.tId = setTimeout(function() {
+    method.tId = setTimeout(function () {
       method.call(context);
     }, timeout);
   }

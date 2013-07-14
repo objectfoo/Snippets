@@ -10,14 +10,15 @@ function whichTransitionEvent() {
   var t,
   el = document.createElement('fakeelement'),
   transitions = {
-    'transition':'transitionEnd',
-    'OTransition':'oTransitionEnd',
-    'MSTransition':'msTransitionEnd',
-    'MozTransition':'transitionend',
-    'WebkitTransition':'webkitTransitionEnd'
+    'transition': 'transitionEnd',
+    'OTransition': 'oTransitionEnd',
+    'MSTransition': 'msTransitionEnd',
+    'MozTransition': 'transitionend',
+    'WebkitTransition': 'webkitTransitionEnd'
   };
 
   for (t in transitions) {
+
     if (el.style[t] !== undefined) {
       return transitions[t];
     }

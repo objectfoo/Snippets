@@ -9,7 +9,7 @@
   global.each = (function (proto, len) {
     var nativeForEach = Array[proto].forEach;
 
-    function hasOwn (obj, key) {
+    function hasOwn(obj, key) {
       return Object[proto].hasOwnProperty.call(obj, key);
     }
 
@@ -19,7 +19,7 @@
         obj.forEach(iterator, context);
       }
       else if (obj[len] === +obj[len]) {
-        for (var i=0, l=obj[len]; i < l; i++) {
+        for (var i = 0, l = obj[len]; i < l; i++) {
           iterator.call(context, obj[i], i, obj);
         }
       }

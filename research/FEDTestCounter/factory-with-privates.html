@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<meta name="description" content="Js Test factory w/privates" />
+<meta charset=utf-8 />
+<title>factory w/privates</title>
+<style>
+  button {
+    padding: 8px 12px;
+    background: #eee;
+    border: 1px solid #999;
+    border-radius: 4px;
+  }
+
+  label {
+    text-align: center;
+    display: inline-block;
+    width: 24px;
+    border-bottom: 1px dotted gray;
+  }
+</style>
+</head>
+<body>
+  <button id="decrement">-</button>
+  <label id="count"></label>
+  <button id="increment">+</button>
+
+<script>
+  (function () {
+    'use strict';
+    function privateCounter() {
+      var count = 0;
+
+      function inc() { count++; }
+      function dec() { count--; }
+      function getCount() { return count; }
+
+      return {
+        inc: inc,
+        dec: dec,
+        getCount: getCount
+      };
+    }
+
+    var counter = privateCounter(),
+
+    updateLabel = function() {
+      var label = document.getElementById('count');
+      updateLabel = function () {
+        $(label).text(counter.getCount());
+      };
+      updateLabel();
+    };
+
+    $('body').on('click', 'button', function() {
+      var id = this.id;
+
+      if (id === 'increment') {
+        counter.inc();
+      } else {
+        counter.dec();
+      }
+      updateLabel();
+    });
+    updateLabel();
+  })();
+</script>
+</body>
+</html>

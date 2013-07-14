@@ -6,7 +6,7 @@
   if (!Array.prototype.forEach) {
     Array.prototype.forEach = function (callback, context) {
 
-      for (var i=0, len=this.length; i < len; i++) {
+      for (var i = 0, len = this.length; i < len; i++) {
         callback.call(context || null, this[i], i, this);
       }
     };

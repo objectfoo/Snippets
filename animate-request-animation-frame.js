@@ -28,7 +28,7 @@
     drawFrame(frames[frame]);
 
     // array loop shortcut using modulus
-    frame = ( frame + 1 ) % frames.length;
+    frame = (frame + 1) % frames.length;
     requestFrame(animate());
   }
 
