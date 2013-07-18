@@ -1,9 +1,9 @@
-(function (global) {
+var stuff = (function (stuff) {
   'use strict';
 
-  function hasClassRe(elem, className) {
+  stuff.hasClass = function (elem, className) {
     return (new RegExp('(^|\\s)' + className + '(\\s|$)')).test(elem.className);
-  }
+  };
 
-  global.hasClass = hasClassRe;
-})(this);
+  return stuff;
+})(stuff || {});
