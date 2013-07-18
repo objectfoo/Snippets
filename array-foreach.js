@@ -1,5 +1,5 @@
 // this polyfill and even forEach are painfully slow,
-// prefer optimized for loop
+// prefer optimized loop
 (function () {
   'use strict';
 
@@ -12,3 +12,18 @@
     };
   }
 })();
+
+// optimized loop
+var stuff = (function (stuff) {
+  'use strict';
+
+  stuff.arrayForEach = function (array, callback) {
+    var i = 0, count = array.length;
+
+    while (i < count) {
+      callback(array[i++]);
+    }
+  };
+
+  return stuff;
+})(stuff || {});
