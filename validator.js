@@ -4,42 +4,42 @@
 (function () {
   'use strict';
 
+  var objectEach = (function () {
+    return function (obj, iterator, context) {
+      for (var key in obj) {
+        if (obj.hasOwnProperty(key)) {
+          iterator.call(context, obj[key], key, obj);
+        }
+      }
+    };
+  })();
+
   // define validator object
   var validator = {
     types: {},
     messages: [],
-    config: {},
 
-    validate: function (data) {
-      var i, msg, type, checker, resultOk;
+    validate: function (data, config) {
+      var msg, type, checker;
 
+      if (!config) throw new Error('validate(): config not defined');
+      this.config = config;
       this.messages = [];
 
-      for (i in data) {
+      objectEach(data, function (item, key) {
+        type = this.config[key];
+        checker = this.types[type];
 
-        if (data.hasOwnProperty(i)) {
-          type = this.config[i];
-          checker = this.types[type];
+        if (!type) return;
 
-          if (!type) {
-            continue;
-          }
+        if (!checker) throw new Error('validate(): no handler for type ' + type);
 
-          if (!checker) {
-            throw {
-              name: 'Validation Error',
-              message: 'No handler to validate type ' + type
-            };
-          }
-
-          resultOk = checker.validate(data[i]);
-
-          if (!resultOk) {
-            msg = 'Invalid value for "' + i + '", ' + checker.instructions;
-            this.messages.push(msg);
-          }
+        if (!checker.validate(item)) {
+          msg = 'Invalid value for "' + key + '", ' + checker.instructions;
+          this.messages.push(msg);
         }
-      }
+      });
+
       return this.hasErrors();
     },
 
@@ -49,19 +49,21 @@
   };
 
   // add some validation types
-  validator.types.isNotEmpty = {
-    validate: function (value) {
-      return value !== '';
+  validation.types = {
+    isNotEmpty: {
+      validate: function (value) {
+        return value !== '';
+      },
+      instructions: 'the value can not be empty'
     },
-    instructions: 'the value can not be empty'
+    isNumber: {
+      validate: function (value) {
+        return isNaN(value);
+      },
+      instructions: 'the value can only be a number'
+    }
   };
 
-  validator.types.isNumber = {
-    validate: function (value) {
-      return isNaN(value);
-    },
-    instructions: 'the value can only be a number'
-  };
 
   // put together a data object to validate
   var data = {
@@ -69,14 +71,12 @@
     num: '1'
   };
 
-  // configure validator for our data object
-  validator.config = {
+
+  // run the validator, pass in config object
+  validator.validate(data, {
     name: 'isNotEmpty',
     num: 'isNumber'
-  };
-
-  // run the validator
-  validator.validate(data);
+  });
 
   if (validator.hasErrors()) {
     console.log(validator.messages.join('\n'));
