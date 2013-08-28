@@ -1,7 +1,7 @@
 // Throttle Function
 // Nicholas Zakas, Professional JavaScript for Web Developers: pg. 753
 
-stuff = (function (stuff) {
+var stuff = (function (stuff) {
   'use strict';
 
   stuff.throttle = function (method, context, timeout) {
