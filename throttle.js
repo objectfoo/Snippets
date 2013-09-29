@@ -1,15 +1,10 @@
 // Throttle Function
 // Nicholas Zakas, Professional JavaScript for Web Developers: pg. 753
+function throttle(fn, delay, context) {
+	delay = delay || 100;
 
-var stuff = (function (stuff) {
-  'use strict';
-
-  stuff.throttle = function (method, context, timeout) {
-    clearTimeout(method.tId);
-    method.tId = setTimeout(function () {
-      method.call(context);
-    }, timeout);
-  };
-
-  return stuff;
-})(stuff || {});
+	clearTimeout(fn.tId);
+	fn.tId = setTimeout(function () {
+		fn.call(context);
+	}, delay);
+}
