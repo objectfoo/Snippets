@@ -15,7 +15,7 @@
             // if native request animation frame not
             // available polyfill with setTimeout
             function (cb) {
-              setTimeout(cb, 1000 / 30);
+              setTimeout(cb, 1000 / 60);
             };
   })(window, 'equestAnimationFrame');
 
