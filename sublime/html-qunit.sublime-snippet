@@ -1,0 +1,13 @@
+<snippet>
+	<content><![CDATA[
+<!DOCTYPE html>
+<title>${1:Tests}</title>
+
+<div id="qunit"></div>
+<div id="qunit-fixture"></div>
+<script src="lib/qunit/qunit.js"></script>
+<script src="tests.js"></script>
+]]></content>
+	<tabTrigger>html:qunit</tabTrigger>
+	<scope>text.html</scope>
+</snippet>
