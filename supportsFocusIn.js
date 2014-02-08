@@ -1,26 +1,20 @@
 /**
-* detect focusin support, mostly for firefox
-*
-* https://gist.github.com/jonathantneal/7366668
+* detect native focusin support (I'm looking at you chrome...)
+* mostly for firefox
 ************************************************************/
-var supportsFocusin = (function() {
+var focusEvent = (function() {
+	/**
+	* detect if foucsin supported
+	*********************************************************/
+	var support,
+		eventName = "onfocusin",
+		div = document.createElement("div");
 
-	var
-	support = false,
-	parent = document.lastChild,
-	a = document.createElement('a'),
-	addSupport = function () {
-		support = true;
-	};
+	if (!(support = eventName in window)) {
+		div.setAttribute(eventName, "t");
+		support = div.attributes[eventName].expando === false;
+	}
 
-	a.href = '#';
-
-	a.addEventListener ? a.addEventListener('focusin', addSupport) : a.onfocusin = addSupport;
-
-	// beginning of page so it doesn't scroll down. may impede other scroll actions though
-	parent.insertBefore(a, parent.firstChild).focus().blur();
-
-	parent.removeChild(a);
-
-	return support;
+	div = null;
+	return support ? "focusin" : "focus";
 })();
