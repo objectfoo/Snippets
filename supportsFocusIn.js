@@ -2,7 +2,7 @@
 * detect native focusin support (I'm looking at you chrome...)
 * mostly for firefox
 ************************************************************/
-var focusEvent = (function() {
+var bubblingFocusEvent = (function() {
 	/**
 	* detect if foucsin supported
 	*********************************************************/
