@@ -3,9 +3,6 @@
 * mostly for firefox
 ************************************************************/
 var bubblingFocusEvent = (function() {
-	/**
-	* detect if foucsin supported
-	*********************************************************/
 	var support,
 		eventName = "onfocusin",
 		div = document.createElement("div");
