@@ -2,7 +2,7 @@
  * https://github.com/Modernizr/Modernizr/blob/master/feature-detects/storage/sessionstorage.js
  */
 hasSessionstorage = (function () {
-  var s = 'iCanHasSessionStorage';
+  var s = 'iCanHazSessionStorage';
 
   try {
     sessionStorage.setItem(s, s);
