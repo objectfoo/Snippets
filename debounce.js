@@ -1,17 +1,17 @@
 // based on underscore
 function debounce(fn, delay, context) {
-	var timeout;
-	delay = delay || 100;
+  var timeout;
+  delay = delay || 100;
 
-	return function () {
-		var args = arguments;
+  return function () {
+    var args = arguments;
 
-		function delayed() {
-			timeout = null;
-			fn.apply(context, args);
-		}
+    function delayed() {
+      timeout = null;
+      fn.apply(context, args);
+    }
 
-		clearTimeout(timeout);
-		timeout = setTimeout(delayed, delay);
-	};
+    clearTimeout(timeout);
+    timeout = setTimeout(delayed, delay);
+  };
 }

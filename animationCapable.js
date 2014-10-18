@@ -1,12 +1,13 @@
 var isAnimationCapable = (function (undefined) {
-	var el = document.createElement('div'),
-		animation = !!0;
+  var el = document.createElement('div')
+    , animation = false;
 
-	if (el.style.animationName !== undefined || el.style.WebkitAnimationName !== undefined) {
-		animation = !!1;
-	}
+  if (el.style.animationName !== void 0 ||
+      el.style.WebkitAnimationName !== void 0) {
+    animation = true;
+  }
 
-	el = null;
+  el = null;
 
-	return animation;
+  return animation;
 })();
