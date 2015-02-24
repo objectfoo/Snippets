@@ -1,7 +1,7 @@
 # Getting started with koa
 
-* koa is made by ppl who did express.
-* it uses ES6 featurs
+* koa is made by people who did express.
+* it uses ES6 features
 * it allows you to write apps without callbacks
 * it's a *minimal* framework
 * needs `--harmony` flag
@@ -56,9 +56,9 @@ An error can be thrown inside a generator.
 ```javascript
 function* foo() {  
 	try {
-		yield 'B';   // yield b recieve Error
+		yield 'B';   // yield b receive Error
 	} catch (err) {
-		throw err;   // catch and rethrow Error
+		throw err;   // catch and re-throw Error
 	}
 }
 

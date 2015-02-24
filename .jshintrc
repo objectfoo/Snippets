@@ -1,4 +1,6 @@
 {
+    "node": true,
+    "laxcomma": true,
     "evil": true,
     "regexdash": true,
     "browser": true,
