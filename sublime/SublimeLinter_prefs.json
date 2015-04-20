@@ -1,17 +1,12 @@
 {
     "user": {
         "debug": false,
-        "delay": 0,
+        "delay": 3.0,
         "error_color": "D02000",
-        "gutter_theme": "Packages/SublimeLinter/gutter-themes/Circle/Circle.gutter-theme",
+        "gutter_theme": "Packages/SublimeLinter/gutter-themes/Default/Default.gutter-theme",
         "gutter_theme_excludes": [],
-        "lint_mode": "manual",
+        "lint_mode": "background",
         "linters": {
-            "jscs": {
-                "@disable": false,
-                "args": [],
-                "excludes": []
-            },
             "jshint": {
                 "@disable": false,
                 "args": [],
@@ -20,13 +15,11 @@
             "jsxhint": {
                 "@disable": false,
                 "args": [
-                    "--jsx-only",
-                    "--babel"
                 ],
                 "excludes": []
             }
         },
-        "mark_style": "stippled underline",
+        "mark_style": "outline",
         "no_column_highlights_line": false,
         "passive_warnings": false,
         "paths": {
