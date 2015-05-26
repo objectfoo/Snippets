@@ -2,12 +2,12 @@
   'use strict';
 
   var frame = 0,
-  frames = ['frame0', 'frame1', 'frame2'],
+  frames = ['frame0', 'frame1', 'frame2', 'frame3'],
 
   // request animation frame polyfill
   requestFrame = (function (w,  suffix) {
-    return  w['webkitR' + suffix] ||
-            w['r'       + suffix] ||
+    return  w['r'       + suffix] ||
+            w['webkitR' + suffix] ||
             w['mozR'    + suffix] ||
             w['msR'     + suffix] ||
             w['oR'      + suffix] ||
@@ -20,8 +20,7 @@
   })(window, 'equestAnimationFrame');
 
   function drawFrame(currentFrame) {
-    //...
-    return !!currentFrame;
+    document.body.innerHTML = currentFrame;
   }
 
   function animate() {
@@ -29,7 +28,7 @@
 
     // array loop shortcut using modulus
     frame = (frame + 1) % frames.length;
-    requestFrame(animate());
+    requestFrame(animate);
   }
 
   animate();
