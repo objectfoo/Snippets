@@ -1,9 +1,9 @@
-var isAnimationCapable = (function (undefined) {
+var isAnimationCapable = (function (undef) {
   var el = document.createElement('div')
     , animation = false;
 
-  if (el.style.animationName !== void 0 ||
-      el.style.WebkitAnimationName !== void 0) {
+  if (el.style.animationName !== undef ||
+      el.style.WebkitAnimationName !== undef) {
     animation = true;
   }
 
