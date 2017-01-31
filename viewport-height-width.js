@@ -1,22 +1,26 @@
 // viewport height and width
-// Nicholas Zachas
-// professional javascript for web developers
-// mobile quirks: quirksmode.org/mobile/viewports2.html
-(function (window, document) {
-  'use strict';
+// jquery-ish
+// https://github.com/jquery/jquery/blob/1.12-stable/src/dimensions.js#L36
+body = global.document.body;
+doc = global.document.documentElement;
 
-  var pageWidth = window.innerWidth,
-      pageHeight = window.innerHeight;
+// height
 
-  if (typeof pageWidth !== 'number') {
+Math.max(
+  body.scrollHeight,
+  doc.scrollHeight,
+  body.offsetHeight,
+  doc.offsetHeight,
+  doc.clientHeight
+);
 
-    if (document.compatMode === 'CSS1Compat') {
-      pageWidth = document.documentElement.clientWidth;
-      pageHeight = document.documentElement.clientHeight;
-    } else {
-      pageWidth = document.body.clientWidth;
-      pageHeight = document.body.clientHeight;
-    }
-  }
-})(window, document);
+// width
+
+Math.max(
+  body.scrollWidth,
+  doc.scrollWidth,
+  body.offsetWidth,
+  doc.offsetWidth,
+  doc.clientWidth
+);
 
