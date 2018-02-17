@@ -79,3 +79,29 @@
   counter.value();                // 0
 })();
 
+// es6
+(() => {
+  class Counter {
+    constructor (initialValue) {
+      this.count = !initialValue ? 0 : parseInt(initialValue, 10) || 0;
+    }
+
+    increment () {
+      this.count = this.count + 1;
+    }
+
+    decrement () {
+      this.count = this.count - 1;
+    }
+
+    value () {
+      return this.count;
+    }
+  }
+
+  var counter = new Counter();
+  counter.increment();            // count 1
+  console.log(counter.value());   // 0
+  counter.decrement();            // count 0
+  console.log(counter.value());   // 0
+})()
